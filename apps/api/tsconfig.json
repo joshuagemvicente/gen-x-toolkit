@@ -1,0 +1,14 @@
+{
+  "extends": "@repo/typescript-config/nestjs.json",
+  "compilerOptions": {
+    // `outDir` lives here, not in the shared preset: TypeScript resolves
+    // relative paths from an extended config against the file that declares
+    // them, so a preset-level `dist` would emit into the preset's own folder.
+    "outDir": "dist",
+    // Explicit: a service must not inherit browser or React globals that
+    // happen to be installed in the workspace.
+    "types": ["node", "jest"]
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
